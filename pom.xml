@@ -39,13 +39,27 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.10.39</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.3.12</version>
+		</dependency>
+
 	</dependencies>
 
-	<!--<dependency>-->
-		<!--<groupId>com.amazonaws</groupId>-->
-		<!--<artifactId>aws-java-sdk</artifactId>-->
-		<!--<version>1.11.133</version>-->
-	<!--</dependency>-->
+
 
 	<build>
 		<plugins>
