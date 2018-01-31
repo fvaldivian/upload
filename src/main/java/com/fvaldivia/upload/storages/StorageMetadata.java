@@ -4,10 +4,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.json.simple.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.activation.FileTypeMap;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class StorageMetadata extends Storage {
@@ -25,18 +23,19 @@ public class StorageMetadata extends Storage {
 
 
 
+
         try {
-            FileWriter fil = new FileWriter(getPath()+file.getName()+"."+getFormat());
+            FileWriter fil = new FileWriter(getPath()+file.getOriginalFilename().split("\\.")[0]+"."+getFormat());
 
             if(getFormat().equals("json")) {
                 JSONObject obj = new JSONObject();
-                obj.put("Nombre", file.getName());
+                obj.put("Nombre", file.getOriginalFilename().split("\\.")[0]);
                 obj.put("Tamaño", file.getSize() + "bytes");
                 obj.put("Extension", FilenameUtils.getExtension(file.getOriginalFilename()));
                 fil.write(obj.toJSONString());
             }
             else{
-                fil.write("Nombre "+file.getName()+System.getProperty( "line.separator" ));
+                fil.write("Nombre "+file.getOriginalFilename().split("\\.")[0]+System.getProperty( "line.separator" ));
                 fil.write("Tamaño "+file.getSize() + " bytes"+System.getProperty( "line.separator" ));
                 fil.write("Extension "+FilenameUtils.getExtension(file.getOriginalFilename()));
             }
