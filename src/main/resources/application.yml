@@ -1,0 +1,16 @@
+storage:
+  type: fileSystem
+  properties:
+    path: C:\file
+#storage:
+#  type: metadata
+#  properties:
+#    path: C:\file
+#    format: json
+#storage:
+#  type: s3
+#  properties:
+#    endpointUrl: https://s3.us-east-2.amazonaws.com
+#    accessKey: akey
+#    secretKey: skey
+#    bucketName: bname
