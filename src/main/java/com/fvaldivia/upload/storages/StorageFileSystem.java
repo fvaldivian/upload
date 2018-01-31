@@ -11,18 +11,19 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class StorageFileSystem extends Storage {
-    Map<String,String> properties;
+
+    String path;
 
     public StorageFileSystem(Map<String,String> properties){
-        this.properties=properties;
+        this.path=properties.get("path");
     }
 
     @Override
     public boolean Upload(MultipartFile file) {
-        if(!file.isEmpty()){
+
             try{
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(properties.get("path")+ file.getOriginalFilename());
+            Path path = Paths.get(getPath()+ file.getOriginalFilename());
             Files.write(path, bytes);
 
             return true;
@@ -32,10 +33,17 @@ public class StorageFileSystem extends Storage {
                 e.printStackTrace();
                 return false;
             }
-        }
-        else
-            return false;
+
     }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 
 
 

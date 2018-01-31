@@ -1,15 +1,15 @@
-#storage:
-#  type: fileSystem
-#  properties:
-#    path: C:\file
+storage:
+  type: fileSystem
+  properties:
+    path: D:\upload\
 #storage:
 #  type: metadata
 #  properties:
-#    path: C:\file
+#    path: D:\upload\
 #    format: json
-storage:
-  type: s3
-  properties:
-    accessKey: akey
-    secretKey: skey
-    bucketName: bname
+#storage:
+#  type: s3
+#  properties:
+#    accessKey: akey
+#    secretKey: skey
+#    bucketName: bname
